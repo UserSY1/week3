@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		
+		@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+
+		body {
+			margin : 0;
+			overflow : hidden;
+			position: relative;
+			display : flex;
+			flex-direction: column;
+			height: 100vh;
+			background-color : rgb(0, 0, 51);
+			background-image: url("4wk_backGRND.png");
+			background-position: center center;
+			background-size: cover;
+			background-repeat : no-repeat;
+		}
+		#butcont {
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+
+		}
+		#countercont {
+
+			position : fixed ;
+			top : 2%;
+			left: 10%;
+			margin: 0;
+		}
+		#counter {
+
+			width : 50%;
+			height :50% ; 
+			
+			
+		}
+
+		#number{
+
+			position : fixed;
+			top: 14%;
+			left: 22%;
+			margin: 10;
+
+			font-size: 35px;
+			font-style: bold;
+			font-size : 80px;
+			font-family: "Noto Sans KR", sans-serif;
+			font-style : bold; 
+			color : white ;
+			z-index: 5;
+
+
+		}
+
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+
+	<div id = "butcont"> <img id = "but" src = "but1.png"> </div>
+	<div id = "countercont">
+		<img id = "counter" src = "counter.png">
+		<div id = "number">0</div>
+	</div>
+	
+
+
+
+
+	<script type = "text/javascript">
+
+	
+			function countEvent(){
+
+				const button = document.getElementById('but')
+				const countElement = document.getElementById('number')
+
+				let number = 0 ;
+
+
+
+				button.addEventListener('click',()=>{
+
+				number++;
+
+			
+
+				countElement.textContent = number;
+
+				
+			});
+
+
+			}
+
+			function countColor(){
+
+				const button = document.getElementById('but');
+				const counter = document.getElementById('counter');
+				let clickCount = 0;
+
+
+				button.addEventListener('click',()=>{
+
+					clickCount++;
+
+					counter.style.filter = `hue-rotate(${clickCount*10}deg)`;
+
+
+				});
+
+			}
+		
+
+			
+
+
+
+		function showCounter(){
+
+			const counter = document.querySelector('#counter');
+			const number = document.querySelector('#number');
+			counter.style.display = 'block';
+			number.style.display  = 'block';
+		}
+
+		function hideCounter()	{
+
+			const conter =	document.querySelector('#counter');
+			const number = document.querySelector('#number');
+			counter.style.display = 'none';
+			number.style.display = 'none';
+		}
+
+
+		var state = "but1";
+		
+
+		hideCounter()
+
+
+		but.onclick = function(){
+			if(state == "but1"){
+
+				but.src = "but2.png"
+				state = "but2"
+		
+			}else if (state == "but2"){
+
+				but.src = "but3.png"
+				state = "but3"
+
+			}else if (state == "but3"){
+
+				but.src = "but4.png"
+				state = "but4"
+				showCounter()
+			}else if (state == "but4"){
+
+				state = "counting"
+				countEvent()
+				countColor()
+
+
+			}
+
+			
+		}
+
+
+
+
+
+
+
+	</script>
+
+
+</body>
+</html>
